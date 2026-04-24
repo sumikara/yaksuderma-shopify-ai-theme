@@ -714,6 +714,7 @@ Toxins → Botulinum Toxins
 Fillers → Dermal & Body Fillers
 Skin Boosters → Skin Boosters & Exosomes
 Fat Dissolvers → Mesotherapy & Contouring
+Collagen Stimulators → Collagen Stimulators
 Accessories → Clinical Accessories & IV Therapy
 ```
 
