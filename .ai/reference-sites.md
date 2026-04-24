@@ -1,6 +1,10 @@
 ## 1. Purpose
 
-This file defines external design and UX references for the YaksuDerma Shopify redesign.
+This file defines how references should be used. Actual reference URLs are stored separately in:
+
+- `.ai/reference-site-links.md`
+
+When Codex needs real external examples, it should read `.ai/reference-site-links.md` after reading this file.
 Codex should use this file for inspiration when working on:
 - Homepage hierarchy
 - Product discovery
@@ -16,6 +20,7 @@ Codex should use this file for inspiration when working on:
 
 This file should be read together with:
 
+- `.ai/reference-site-links.md`
 - `.ai/codex-instructions.md`
 - `.ai/brand-brief.md`
 - `.ai/store-brief.md`
@@ -267,6 +272,16 @@ Avoid:
 - Tiny text
 - Low-contrast UI
 - Overly animated or unrealistic designs
+
+## Actual Reference URLs
+
+This file does not store the full active URL list.
+
+The active list of real reference websites is stored in:
+
+- `.ai/reference-site-links.md`
+
+Codex should use this file for rules and `.ai/reference-site-links.md` for actual site URLs.
 
 ## 6. Competitor / Category Reference Framework
 
@@ -570,12 +585,13 @@ Before designing a page or component, Codex should:
 
 1. Read the relevant project brief.
 2. Check if the task needs visual inspiration.
-3. Use this file for inspiration principles.
-4. Avoid copying external designs.
-5. Translate useful ideas into YaksuDerma’s own design system.
-6. Keep Shopify-native implementation.
-7. Preserve performance and accessibility.
-8. Preserve product/cart/variant/search/filtering logic.
+3. Read this file for reference usage rules.
+4. Read `.ai/reference-site-links.md` for actual reference URLs and site-specific notes.
+5. Avoid copying external designs.
+6. Translate useful ideas into YaksuDerma’s own design system.
+7. Keep Shopify-native implementation.
+8. Preserve performance and accessibility.
+9. Preserve product/cart/variant/search/filtering logic.
 
 ## 12. Reference Summary
 
