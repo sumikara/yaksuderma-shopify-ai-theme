@@ -1,1 +1,1 @@
-# 06-collection-page-redesign
+Redesign product cards and collection grid for a premium medical aesthetics catalog. Improve image ratio, title hierarchy, price visibility, badges, hover state, mobile 2-column grid, spacing, and collection page header. Preserve filtering, sorting, pagination, and product URLs.
