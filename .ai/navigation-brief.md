@@ -56,7 +56,7 @@ Home
 Toxins
 Fillers
 Skin Boosters
-Contouring
+Fat Dissolvers
 Collagen Stimulators
 Accessories
 About
@@ -68,18 +68,22 @@ Do not replace this with a generic “Shop” dropdown unless explicitly request
 
 ## 4. Product Category Mapping
 
-The visible menu labels should map to the broader catalog architecture.
+The visible menu labels should be short and retail-friendly, while collection page titles should remain SEO-friendly and professional.
 
-| Header Label | Full Collection / Meaning | Suggested Handle |
+| Header Label | Full Collection / Page Title | Suggested Handle |
 |---|---|---|
 | Home | Homepage | `/` |
-|  Toxins |  Toxins | `botulinum-toxins` |
+| Toxins | Botulinum Toxins | `botulinum-toxins` |
 | Fillers | Dermal & Body Fillers | `dermal-body-fillers` |
 | Skin Boosters | Skin Boosters & Exosomes | `skin-boosters-exosomes` |
-| Contouring | Mesotherapy & Contouring | `mesotherapy-contouring` |
+| Fat Dissolvers | Mesotherapy & Contouring | `mesotherapy-contouring` |
 | Collagen Stimulators | Collagen Stimulators | `collagen-stimulators` |
 | Accessories | Clinical Accessories & IV Therapy | `clinical-accessories-iv-therapy` |
 | About | About YaksuDerma | `about` |
+
+Use short labels in the header for visual clarity.
+
+Use the fuller collection names on collection pages, SEO titles, meta titles, category cards, and structured content when helpful.
 
 ## 5. Header Label Rules
 
@@ -91,12 +95,26 @@ Preferred visible labels:
 - Toxins
 - Fillers
 - Skin Boosters
-- Contouring
+- Fat Dissolvers
 - Collagen Stimulators
 - Accessories
 - About
 
-Do not use overly long labels in the main header.
+These labels are intentionally shorter than the full collection names.
+
+Use:
+
+```text
+Toxins
+```
+
+instead of:
+
+```text
+Botulinum Toxins
+```
+
+in the main header.
 
 Use:
 
@@ -120,6 +138,18 @@ instead of:
 
 ```text
 Skin Boosters & Exosomes
+```
+
+Use:
+
+```text
+Fat Dissolvers
+```
+
+instead of:
+
+```text
+Mesotherapy & Contouring
 ```
 
 Use:
@@ -182,24 +212,28 @@ Dropdown rules:
 
 If no dropdown is implemented yet, `Accessories` should link to the main Clinical Accessories & IV Therapy collection.
 
-## 8. Botulinum Toxins Navigation
+## 8. Toxins Navigation
 
-`Toxins` should be a direct top-level category.
+Use the visible header label:
 
-Reason:
+```text
+Toxins
+```
 
-- It is one of the most important product groups.
-- It includes many high-demand products.
-- It should be immediately visible.
-- It supports clear product discovery.
-
-Do not rename it to “Botox” in the main navigation unless explicitly requested.
-
-Preferred label:
+This menu item should map to the full collection/page title:
 
 ```text
 Botulinum Toxins
 ```
+
+Reason:
+
+- “Toxins” is shorter and cleaner in the header.
+- “Botulinum Toxins” is more professional and SEO-friendly on the collection page.
+- The category is one of the most commercially important product groups.
+- It should be immediately visible in the main menu.
+
+Do not use “Botox” in the main navigation unless explicitly requested.
 
 Avoid:
 
@@ -230,39 +264,44 @@ Reason:
 - Exosome products can live inside this broader category.
 - The collection page title can use the fuller SEO phrase.
 
-## 10. Contouring Navigation
+## 10. Fat Dissolvers Navigation
 
-Use the visible label:
+Use the visible header label:
 
 ```text
-Contouring
+Fat Dissolvers
 ```
 
-This menu item should map to:
+This menu item should map to the broader collection/page title:
 
 ```text
 Mesotherapy & Contouring
+```
+
+Alternative collection page title if preferred:
+
+```text
+Fat Dissolvers & Contouring
 ```
 
 Reason:
 
-- Shorter and easier for retail users.
-- More elegant in header navigation.
-- Still compatible with the broader catalog structure.
+- “Fat Dissolvers” is clearer and more commercial for customers.
+- It directly matches a high-interest product category.
+- It is easier to understand than “Mesotherapy & Contouring” in the header.
+- The fuller category language can still be used for SEO and collection page content.
 
-Collection page can use:
-
-```text
-Mesotherapy & Contouring
-```
-
-or:
+Avoid:
 
 ```text
-Contouring Products
+Fat Loss Injections
+Weight Loss Shots
+Slimming Miracles
+Guaranteed Contouring
+Instant Fat Removal
 ```
 
-depending on SEO and UX needs.
+Use neutral product-category language and avoid treatment/result claims.
 
 ## 11. Collagen Stimulators Navigation
 
@@ -273,6 +312,14 @@ Collagen Stimulators
 ```
 
 This category can remain top-level because it is specific and commercially meaningful.
+
+Collagen Stimulators should not be merged into Fat Dissolvers unless the user explicitly changes the catalog architecture later.
+
+Reason:
+
+- Products such as Aesthefill, Etrebelle, Power Coltra, and Richesse PCL are commercially different from fat dissolvers.
+- This category can feel more premium and specialist.
+- Keeping it separate prevents catalog confusion.
 
 Avoid making it too technical in the header.
 
@@ -334,7 +381,7 @@ Fillers
   Dermal Fillers
   Body Fillers
 Skin Boosters
-Contouring
+Fat Dissolvers
 Collagen Stimulators
 Accessories
   Numbing Creams
@@ -350,10 +397,10 @@ If nested mobile menus feel too complex, use this simpler version:
 
 ```text
 Home
-Botulinum Toxins
+Toxins
 Fillers
 Skin Boosters
-Contouring
+Fat Dissolvers
 Collagen Stimulators
 Accessories
 About
@@ -379,15 +426,15 @@ Recommended homepage category cards:
 1. Toxins
 2. Fillers
 3. Skin Boosters
-4. Contouring
+4. Fat Dissolvers
 5. Collagen Stimulators
 6. Accessories
 
 Optional card subtitles:
 
-### Botulinum Toxins
+### Toxins
 
-Korean-origin toxin product category.
+Botulinum toxin product category.
 
 ### Fillers
 
@@ -397,9 +444,9 @@ Dermal and body filler selections.
 
 Skin booster, PDRN, and exosome categories.
 
-### Contouring
+### Fat Dissolvers
 
-Mesotherapy and contouring product categories.
+Lipolytic and contouring product categories.
 
 ### Collagen Stimulators
 
@@ -419,10 +466,10 @@ Recommended footer groups:
 
 ### Shop
 
-- Botulinum Toxins
+- Toxins
 - Fillers
 - Skin Boosters
-- Contouring
+- Fat Dissolvers
 - Collagen Stimulators
 - Accessories
 
@@ -467,11 +514,15 @@ Navigation should support three discovery paths.
 ### Path 1 — Category-first
 
 ```text
-Home → Botulinum Toxins → Product
+Home → Toxins → Botulinum Toxins collection → Product
 ```
 
 ```text
 Home → Fillers → Dermal Fillers → Product
+```
+
+```text
+Home → Fat Dissolvers → Mesotherapy & Contouring collection → Product
 ```
 
 ### Path 2 — Search-first
@@ -497,6 +548,18 @@ Examples:
 Visible header:
 
 ```text
+Toxins
+```
+
+Collection title:
+
+```text
+Botulinum Toxins
+```
+
+Visible header:
+
+```text
 Fillers
 ```
 
@@ -516,6 +579,18 @@ Collection title:
 
 ```text
 Skin Boosters & Exosomes
+```
+
+Visible header:
+
+```text
+Fat Dissolvers
+```
+
+Collection title:
+
+```text
+Mesotherapy & Contouring
 ```
 
 Visible header:
@@ -572,10 +647,10 @@ Use short and clear labels.
 Preferred:
 
 - Home
-- Botulinum Toxins
+- Toxins
 - Fillers
 - Skin Boosters
-- Contouring
+- Fat Dissolvers
 - Collagen Stimulators
 - Accessories
 - About
@@ -646,10 +721,21 @@ Home
 Toxins
 Fillers
 Skin Boosters
-Contouring
+Fat Dissolvers
 Collagen Stimulators
 Accessories
 About
+```
+
+Full collection/page title mapping:
+
+```text
+Toxins → Botulinum Toxins
+Fillers → Dermal & Body Fillers
+Skin Boosters → Skin Boosters & Exosomes
+Fat Dissolvers → Mesotherapy & Contouring
+Collagen Stimulators → Collagen Stimulators
+Accessories → Clinical Accessories & IV Therapy
 ```
 
 Optional dropdowns:
@@ -670,4 +756,4 @@ Accessories
 
 Main principle:
 
-> Keep navigation product-first, clean, trustworthy, retail-friendly, mobile-friendly, and editable through Shopify whenever possible.
+> Keep navigation short in the header, but keep collection titles professional, SEO-friendly, and clear on category pages.
