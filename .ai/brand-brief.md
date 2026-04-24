@@ -18,17 +18,18 @@ Use **YaksuDerma** as the default written brand name in documentation, section c
 
 YaksuDerma is a Korean-origin professional beauty and medical aesthetics e-commerce brand.
 
-The store focuses on products such as:
+The store focuses on Korean aesthetic product categories such as:
 
-- Korean aesthetic products
-- Botulinum toxin products
-- Dermal fillers
-- Mesotherapy products
-- Skin boosters
-- Professional skincare-related products
-- Other clinic-oriented or aesthetics-related product groups
+- Botulinum Toxins
+- Dermal & Body Fillers
+- Skin Boosters & Exosomes
+- Mesotherapy & Contouring
+- Collagen Stimulators
+- Clinical Accessories & IV Therapy
 
-The exact product and collection structure is documented separately in:
+These six collection groups should guide the store’s main navigation, homepage category structure, and SEO-oriented product discovery.
+
+The detailed product and category mapping is documented separately in:
 
 - `.ai/catalog-brief.md`
 - `.ai/navigation-brief.md`
@@ -37,23 +38,25 @@ The exact product and collection structure is documented separately in:
 
 YaksuDerma is primarily a **B2C-style e-commerce store** focused on retail product sales.
 
-Wholesale and B2B inquiries are allowed and should be supported as a secondary path, but they are not the primary store experience.
+Wholesale, clinic, and business inquiries are allowed as a secondary path, but the main website experience should feel retail-friendly and easy to use.
 
 Primary model:
 
-- Retail-first
-- Consumer-friendly shopping experience
-- Clear product discovery
+- Retail-first e-commerce
+- Consumer-friendly browsing
+- Clear collection discovery
 - Trust-first product presentation
-- Warm and helpful customer relationship
+- Warm and helpful customer support
+- Accessible pricing compared with expensive competitors
 
 Secondary model:
 
 - Wholesale inquiries
-- Clinic / business inquiries
+- Clinic or business inquiries
 - Professional buyer contact path
+- Optional “Wholesale Inquiry” CTA where appropriate
 
-The site should not feel like a cold B2B distributor portal. It should feel like a trusted, professional, accessible e-commerce store with premium Korean product positioning.
+The site should not feel like a cold B2B distributor portal. It should feel like a trusted, professional, accessible e-commerce store that also welcomes professional inquiries.
 
 ## 4. Target Markets
 
@@ -69,27 +72,28 @@ Tertiary target region:
 
 - Middle East
 
-The site should feel internationally trustworthy and polished, but not overly corporate or inaccessible.
+The site should feel internationally trustworthy, clean, and polished. It should not look local, amateur, or marketplace-like.
 
 ## 5. Positioning
 
 YaksuDerma’s positioning:
 
-> Korean-origin aesthetic products offered with trust, authenticity, accessible pricing, and warm customer support.
+> Authentic Korean-origin aesthetic products offered with fair pricing, trust, clear product discovery, and warm customer support.
 
-The brand aims to win customers by offering products that competitors often sell at very high prices, while keeping prices closer to cost during the first one to two years in order to build customer trust, loyalty, and market presence.
+The brand aims to win customers by offering products that competitors often sell at much higher prices, while keeping pricing more accessible during the first one to two years in order to build trust, loyalty, and market presence.
 
 The brand should communicate:
 
-- Affordable access
-- Genuine Korean-origin products
-- 100% original products
-- Trust and authenticity
-- Experience in the market
+- Korean-origin product focus
+- 100% original product positioning
+- Fair and accessible pricing
+- Product authenticity
+- Trust and certificate awareness
 - Helpful customer relationships
-- Warm support
-- Professional but approachable service
-- Long-term customer care
+- Professional product organization
+- Clean and easy product discovery
+- Market familiarity and practical experience
+- Warm support before and after purchase
 
 The store should not feel like a discount marketplace. It should communicate accessible pricing without looking cheap.
 
@@ -98,12 +102,13 @@ The store should not feel like a discount marketplace. It should communicate acc
 YaksuDerma should make customers feel:
 
 - “This store is trustworthy.”
-- “The products are original.”
-- “The brand understands these products.”
+- “The products look original and professionally presented.”
+- “The categories are easy to understand.”
+- “The brand understands Korean aesthetics products.”
 - “The pricing feels fair.”
 - “I can ask questions and receive helpful support.”
 - “This is not a random marketplace seller.”
-- “The store looks professional, clean, and reliable.”
+- “The store looks clean, modern, and reliable.”
 
 ## 7. Trust Priorities
 
@@ -111,25 +116,129 @@ Trust is the most important design and content priority.
 
 The site should strongly emphasize:
 
-- Product authenticity
-- Original Korean-origin products
-- Genuine supplier/product confidence
-- Certificates and authenticity documents when available
-- Clear product information
+- Original product positioning
+- Korean-origin product focus
+- Certificate and authenticity awareness
+- Clear product names
+- Clean category structure
 - Transparent product presentation
 - Warm customer support
-- Years of market familiarity / experience, if verified by the user
-- Professional product curation
+- Professional but approachable service
+- Helpful product discovery
+- Clear contact / inquiry paths
 
 Do not invent certifications, approvals, regulatory claims, supplier relationships, or medical claims.
 
-If a certificate or authenticity claim is used, it must be based on information explicitly provided by the store owner.
+If a certificate, authenticity statement, or approval claim is used, it must be based on information explicitly provided by the store owner.
 
-## 8. Shipping and Availability Positioning
+## 8. Product Category Reality
+
+YaksuDerma’s catalog includes long, technical, professional product names.
+
+The design must support:
+
+- Long product titles
+- Variant-like product names
+- Unit-based naming such as 100 Units, 200 Units, 300 Units
+- Product families such as Botulax, Nabota, Innotox, Neuramis, Revolax, Rejuran, Lipo Lab, Cindella, J-Cain, S-Cain
+- Multiple price levels
+- Premium and affordable products in the same store
+- Products with different commercial roles: volume drivers, premium trend products, accessories, and cross-sell products
+
+The visual system must make these products feel organized, not overwhelming.
+
+## 9. Product Naming Principles
+
+Product names should remain:
+
+- Exact
+- Clear
+- Professional
+- Searchable
+- Consistent with Shopify product data
+- Suitable for SEO
+- Suitable for product comparison
+
+Do not make product names cute, vague, overly simplified, or overly branded in a way that hurts search clarity.
+
+Preferred style:
+
+- “Botulax 100 Units”
+- “Revolax Deep with Lidocaine”
+- “Rejuran Healer”
+- “J-Cain Cream 10.56% 500g”
+- “Liporase inj. / Hyaluronidase”
+
+Avoid:
+
+- “Glow Magic”
+- “Youth Secret”
+- “Best Botox Deal”
+- “Miracle Fat Loss”
+- “Instant Filler Solution”
+- Any renamed product title that changes the actual product meaning
+
+## 10. Collection Naming Principles
+
+Main collection names should remain SEO-friendly and professional:
+
+1. **Botulinum Toxins**
+2. **Dermal & Body Fillers**
+3. **Skin Boosters & Exosomes**
+4. **Mesotherapy & Contouring**
+5. **Collagen Stimulators**
+6. **Clinical Accessories & IV Therapy**
+
+Avoid:
+
+- Too many main navigation categories
+- Overly vague collection names
+- Cute category labels
+- Long cluttered navigation labels
+- Medical result claims in collection names
+
+The navigation should stay compact, clean, and easy to scan.
+
+## 11. Pricing Perception
+
+YaksuDerma wants to offer accessible pricing compared with competitors, especially during the early customer acquisition period.
+
+However, the site should not look cheap.
+
+Design should communicate:
+
+- Fair pricing
+- Honest value
+- Authentic products
+- Trusted source
+- Helpful support
+- Organized catalog
+- Professional care
+
+Avoid:
+
+- Aggressive discount design
+- Flash-sale feeling
+- Countdown timers unless explicitly requested
+- Red-heavy sale visuals
+- Loud “cheap” messaging
+- Marketplace-style product cards
+- Overusing sale badges
+- Making low prices look suspicious
+
+Preferred wording:
+
+- “Fair pricing”
+- “Accessible Korean-origin products”
+- “Authentic products, thoughtfully priced”
+- “Trusted products at more accessible prices”
+- “Professional selection with helpful support”
+
+## 12. Shipping and Availability Positioning
 
 YaksuDerma should not overpromise shipping speed.
 
-The brand is not currently positioning itself around ultra-fast delivery because some products may require careful storage, freshness control, cold-chain awareness, or shorter shelf-life considerations.
+The brand is not currently positioning itself around ultra-fast delivery because some products may require careful handling, freshness awareness, shelf-life awareness, or storage considerations.
 
 Use careful language around shipping:
 
@@ -149,7 +258,7 @@ Avoid:
 - “Guaranteed delivery time”
 - Any claim that is not operationally guaranteed
 
-## 9. Brand Personality
+## 13. Brand Personality
 
 YaksuDerma should feel:
 
@@ -166,6 +275,7 @@ YaksuDerma should feel:
 - Reliable
 - Premium but not distant
 - Affordable but not cheap
+- Retail-friendly but professional-aware
 
 The brand should not feel:
 
@@ -176,8 +286,9 @@ The brand should not feel:
 - Marketplace-like
 - Luxury in a detached or intimidating way
 - Cheap or discount-bin oriented
+- Like a complex B2B catalog portal
 
-## 10. Visual Direction
+## 14. Visual Direction
 
 The visual identity should combine:
 
@@ -186,6 +297,7 @@ The visual identity should combine:
 - Soft water-inspired freshness
 - Professional e-commerce usability
 - Warm customer-focused accessibility
+- Clear technical product organization
 
 The site should use:
 
@@ -204,9 +316,9 @@ The site should use:
 
 The design should feel like:
 
-> A trustworthy Korean aesthetics e-commerce store that offers authentic products at fair prices with helpful customer support.
+> A trustworthy Korean aesthetics e-commerce store that offers original products at fair prices with helpful customer support.
 
-## 11. Color Strategy
+## 15. Color Strategy
 
 Color must support three psychological goals:
 
@@ -232,9 +344,10 @@ Use for:
 
 - Secondary accents
 - Trust badges
-- Links
 - Informational highlights
 - Subtle UI emphasis
+- Links
+- Certificate / authenticity blocks
 
 Avoid using trust blue in a cold corporate way. It should support the turquoise/aqua identity, not replace it.
 
@@ -254,13 +367,14 @@ Use for:
 - Customer support sections
 - Brand story sections
 - Gentle callout areas
+- Wholesale inquiry sections
 - Warm contrast against cool aqua tones
 
 Avoid strong yellow, orange, or gold. The warm tone should feel soft, calm, and premium.
 
-## 12. Suggested Palette Direction
+## 16. Suggested Palette Direction
 
-Use this as a starting palette direction. Exact hex values can be refined later in `.ai/design-system.md`.
+Use this as a starting palette direction. Exact hex values should be finalized later in `.ai/design-system.md`.
 
 ### Base Neutrals
 
@@ -280,16 +394,16 @@ Use this as a starting palette direction. Exact hex values can be refined later 
 - Trust blue: reliability and security
 - Warm sand / soft beige: human warmth and support
 
-## 13. Color Usage Rules
+## 17. Color Usage Rules
 
 Use color sparingly and intentionally.
 
 Recommended usage:
 
 - 70–80% neutral white / off-white / light backgrounds
-- 10–15% turquoise / aqua / blue-green brand accents
+- 10–15% turquoise / aqua / medical blue-green brand accents
 - 5–10% trust blue for credibility-related UI
-- 5% warm sand / beige for support and brand warmth
+- 5% warm sand / beige for support and warmth
 
 Avoid:
 
@@ -304,36 +418,7 @@ Avoid:
 
 Sale or price emphasis should look clean and trustworthy, not aggressive.
 
-## 14. Pricing Perception
-
-The brand offers accessible pricing, but the visual identity should not look cheap.
-
-Design should communicate:
-
-- Fair price
-- Honest value
-- Original product
-- Trusted source
-- Helpful support
-
-Avoid:
-
-- “Cheap” as the primary message
-- Overuse of discount badges
-- Flash-sale visuals
-- Countdown timers unless explicitly requested
-- Aggressive red sale labels
-- Marketplace-style price shouting
-
-Preferred wording:
-
-- “Fair pricing”
-- “Accessible Korean-origin products”
-- “Authentic products, thoughtful pricing”
-- “Trusted products at more accessible prices”
-- “Helpful support before and after purchase”
-
-## 15. Typography Direction
+## 18. Typography Direction
 
 Typography should feel:
 
@@ -343,8 +428,8 @@ Typography should feel:
 - Professional
 - Calm
 - Slightly premium
-- Not overly decorative
-- Not overly corporate
+- Suitable for long product names
+- Suitable for technical product categories
 
 Headings:
 
@@ -359,6 +444,12 @@ Body text:
 - Short enough for mobile
 - Helpful and direct
 
+Product titles:
+
+- Must handle long names gracefully
+- Should not wrap in visually messy ways
+- Should support unit, size, and variant-style names
+
 Avoid:
 
 - Too many font weights
@@ -367,7 +458,7 @@ Avoid:
 - Text over visually busy images
 - Overly luxury fashion-style typography that hurts readability
 
-## 16. Layout Direction
+## 19. Layout Direction
 
 The layout should prioritize:
 
@@ -382,10 +473,11 @@ The layout should prioritize:
 - Human support visibility
 - Calm spacing
 - Clear CTAs
+- Compact but understandable navigation
 
-The store should feel structured and helpful, not empty or overly abstract.
+The store should feel structured and helpful, not empty, chaotic, or overly abstract.
 
-## 17. Homepage Direction
+## 20. Homepage Direction
 
 The homepage should quickly communicate:
 
@@ -394,8 +486,8 @@ The homepage should quickly communicate:
 3. That pricing is fair and accessible
 4. That the brand is trustworthy
 5. That customer support is warm and helpful
-6. Main product categories
-7. Featured products or collections
+6. The six main product collections
+7. Featured products or featured collections
 8. How to contact the store for questions or wholesale inquiries
 
 The homepage should not rely only on a large hero banner.
@@ -404,14 +496,14 @@ Recommended homepage section logic:
 
 1. Hero with clear value proposition
 2. Trust / authenticity bar
-3. Main category showcase
+3. Six main category showcase
 4. Featured collection or featured products
 5. Why YaksuDerma / brand promise
 6. Customer support / contact section
 7. Optional wholesale inquiry section
 8. Footer trust and policy links
 
-## 18. Product Presentation
+## 21. Product Presentation
 
 Product presentation should be:
 
@@ -423,20 +515,69 @@ Product presentation should be:
 - Professional
 - Mobile-friendly
 - Helpful without overwhelming users
+- Suitable for long technical product names
+- Suitable for different price points
 
 Product cards should emphasize:
 
 - Product image
 - Product name
+- Price from Shopify dynamic data
 - Collection/category context when useful
-- Price from Shopify data
 - Availability if Shopify provides it
 - Clean CTA
-- Authenticity or origin cues only when verified
+- Optional authenticity or origin cues only when verified
 
 Avoid product card clutter.
 
-## 19. Conversion Priorities
+## 22. Product Card Requirements
+
+Product cards must support:
+
+- Long product names
+- Technical product names
+- Unit-based naming
+- Price visibility
+- Clean image ratios
+- Mobile two-column browsing where appropriate
+- Optional badges
+- Non-aggressive pricing display
+- Clear click/tap targets
+
+Product cards should not look like cheap marketplace listings.
+
+Avoid:
+
+- Too many badges
+- Large red sale blocks
+- Crowded text
+- Tiny prices
+- Cropped product images
+- Overly decorative card styles
+
+## 23. Collection Page Requirements
+
+Collection pages should feel:
+
+- Organized
+- Searchable
+- Filter-friendly
+- Mobile-friendly
+- Professional
+- Not overwhelming despite large product counts
+
+Collection pages should preserve:
+
+- Shopify filtering
+- Shopify sorting
+- Pagination
+- Product URLs
+- Product data
+- Dynamic product prices
+
+Collection page headers should clearly explain the category without making risky medical claims.
+
+## 24. Conversion Priorities
 
 The most important conversion goals:
 
@@ -447,9 +588,35 @@ The most important conversion goals:
 5. Support fair-price perception without cheapening the brand.
 6. Make mobile shopping smooth.
 7. Provide visible customer support.
-8. Allow B2B/wholesale inquiries without making the site feel B2B-first.
+8. Allow B2B/wholesale inquiries without making the site B2B-first.
+9. Support related product discovery.
+10. Keep product pages clear and easy to act on.
 
-## 20. Brand Voice
+## 25. Cross-Sell Philosophy
+
+Cross-selling should feel helpful, not pushy.
+
+Examples:
+
+- Liporase may be recommended as a related product for Dermal & Body Filler products when technically feasible.
+- Numbing creams may appear as clinical accessory recommendations where appropriate.
+- Skin booster products may be grouped with related PDRN or exosome products.
+
+Use neutral wording:
+
+- “Related products”
+- “You may also explore”
+- “Often viewed with”
+- “Explore related categories”
+
+Avoid:
+
+- “Required for treatment”
+- “Must be used with”
+- “Use this together”
+- Any medical instruction or treatment guidance
+
+## 26. Brand Voice
 
 The brand voice should be:
 
@@ -463,6 +630,7 @@ The brand voice should be:
 - Not aggressive
 - Not overly clinical
 - Not overly luxury
+- Retail-friendly
 
 Preferred tone examples:
 
@@ -472,6 +640,7 @@ Preferred tone examples:
 - “Need help choosing a product? Contact us.”
 - “Original products, carefully handled”
 - “Professional product selection with a human support approach”
+- “Browse Korean-origin aesthetic products by category”
 
 Avoid:
 
@@ -485,7 +654,7 @@ Avoid:
 - Exaggerated treatment claims
 - Fear-based sales language
 
-## 21. B2B / Wholesale Positioning
+## 27. B2B / Wholesale Positioning
 
 Wholesale should be present but secondary.
 
@@ -500,8 +669,30 @@ Example language:
 
 - “Wholesale or clinic inquiry? Contact us for availability.”
 - “For business inquiries, our team can help with product and order details.”
+- “Retail orders first, business inquiries welcome.”
 
-## 22. Content Safety Rules
+## 28. Certificate / Authenticity Positioning
+
+Certificates and authenticity are important for both customer trust and search visibility.
+
+The site may include certificate/authenticity sections only when the user provides verified content.
+
+Preferred section concepts:
+
+- “Original Korean-origin products”
+- “Authenticity-focused sourcing”
+- “Certificate information available where applicable”
+- “Contact us for product details and availability”
+
+Avoid:
+
+- Inventing certificate names
+- Inventing regulatory approvals
+- Claiming official authorization unless confirmed
+- Claiming country-specific legality unless confirmed
+- Using logos or seals without permission
+
+## 29. Content Safety Rules
 
 Do not create medical, legal, regulatory, or certification claims unless explicitly provided by the user.
 
@@ -516,10 +707,12 @@ Codex must not invent:
 - Safety claims
 - Before/after results
 - Medical usage instructions
+- Dosage instructions
+- Injection instructions
 
 When uncertain, use neutral e-commerce language or ask for confirmation.
 
-## 23. Design Inspiration Keywords
+## 30. Design Inspiration Keywords
 
 Use these keywords as creative direction:
 
@@ -534,3 +727,5 @@ Use these keywords as creative direction:
 - Mobile-first product discovery
 - Trust-first beauty commerce
 - Professional but approachable
+- Organized technical catalog
+- Retail-friendly medical aesthetics
