@@ -1,1 +1,1 @@
-# 11-existing-theme-migration
+Compare the current redesigned Dawn theme with the reference old Shopify Dawn theme. Identify reusable customizations, section settings, page templates, CSS snippets, assets, and layout ideas that should be migrated. Do not copy blindly. Produce a migration table with: source file, target file, reason to migrate, risk level, and implementation plan.
