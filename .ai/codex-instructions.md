@@ -159,9 +159,10 @@ Follow this project order unless explicitly instructed otherwise:
 5. Redesign product cards.
 6. Redesign collection page and product grid.
 7. Redesign product page carefully.
-8. Run mobile UX pass.
-9. Run theme check / validation pass.
-10. Migrate useful elements from the old Shopify theme only after the new design system is stable.
+8. Add custom product components only when needed.
+9. Run mobile UX pass.
+10. Run theme check / validation pass.
+11. Migrate useful elements from the old Shopify theme only after the new design system is stable.
 
 ## 9. Safety Rules for Medical Aesthetics Content
 
@@ -193,8 +194,10 @@ Core context files:
 - `.ai/catalog-brief.md`
 - `.ai/navigation-brief.md`
 - `.ai/design-system.md`
+- `.ai/custom-components.md`
 - `.ai/content-rules.md`
 - `.ai/reference-sites.md`
+- `.ai/reference-site-links.md`
 - `.ai/migration-notes.md`
 - `.ai/prompt-playbook.md`
 
@@ -211,6 +214,11 @@ Skill files:
 - `.ai/skills/09-theme-check-fix.md`
 - `.ai/skills/10-conversion-copywriting.md`
 - `.ai/skills/11-existing-theme-migration.md`
+
+Note:
+
+- Custom product components are guided by `.ai/custom-components.md`.
+- They are task-dependent and do not have a separate numbered skill file.
 
 Some files may not exist yet during the initial setup. If a referenced file is missing, mention it and continue with the available context.
 

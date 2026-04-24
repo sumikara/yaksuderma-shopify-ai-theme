@@ -487,13 +487,19 @@ Navigation should be compact and category-first.
 Top-level navigation should prioritize:
 
 - Home
-- Shop / Collections
-- Main product categories
+- Toxins
+- Fillers
+- Skin Boosters
+- Fat Dissolvers
+- Collagen Stimulators
+- Accessories
 - About
 - Contact
 - Optional Wholesale Inquiry
 
 Navigation must not become crowded.
+
+`Shop / Collections` may be used as an internal grouping concept in content planning, but it is not the preferred visible desktop header label structure.
 
 The six main collection groups should be used as the core shop structure.
 

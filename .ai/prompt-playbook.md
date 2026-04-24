@@ -60,6 +60,11 @@ For task-specific work, Codex should also read the relevant file under:
 .ai/skills/
 ```
 
+Note:
+
+- Custom product components are guided by `.ai/custom-components.md` and the relevant product-page/custom-component prompts in this playbook.
+- There is no separate numbered skill file for custom product components.
+
 ## 4. Project Priorities
 
 Codex should follow this project order unless explicitly instructed otherwise:
