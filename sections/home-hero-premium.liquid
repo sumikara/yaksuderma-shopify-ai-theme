@@ -1,0 +1,191 @@
+{{ 'section-home-hero-premium.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="home-hero-premium color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="home-hero-premium__shell{% if section.settings.hero_image != blank %} home-hero-premium__shell--with-image{% endif %}">
+      <div class="home-hero-premium__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="home-hero-premium__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="home-hero-premium__heading">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.subtext != blank -%}
+          <div class="home-hero-premium__subtext rte">
+            <p>{{ section.settings.subtext | escape }}</p>
+          </div>
+        {%- endif -%}
+
+        <div class="home-hero-premium__buttons">
+          {%- if section.settings.primary_button_label != blank -%}
+            <a
+              {% if section.settings.primary_button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.primary_button_link }}"
+              {% endif %}
+              class="button button--primary"
+            >
+              {{- section.settings.primary_button_label | escape -}}
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.secondary_button_label != blank -%}
+            <a
+              {% if section.settings.secondary_button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.secondary_button_link }}"
+              {% endif %}
+              class="button button--secondary"
+            >
+              {{- section.settings.secondary_button_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.support_note != blank -%}
+          <p class="home-hero-premium__support-note">{{ section.settings.support_note | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.hero_image != blank -%}
+        <div class="home-hero-premium__media-wrapper">
+          <div class="home-hero-premium__media media">
+            {{
+              section.settings.hero_image
+              | image_url: width: 1600
+              | image_tag:
+                widths: '320, 480, 640, 760, 920, 1100, 1400, 1600',
+                sizes: '(min-width: 990px) 40vw, (min-width: 750px) 50vw, 100vw',
+                loading: 'lazy'
+            }}
+          </div>
+          {%- if section.settings.image_caption != blank -%}
+            <p class="home-hero-premium__media-caption">{{ section.settings.image_caption | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home hero premium",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Korean-Origin Aesthetic Products"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Korean-Origin Aesthetic Products, Clearly Organized"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subheading",
+      "default": "Explore trusted product categories with fair pricing, clear information, and helpful support."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "Shop Categories"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button label",
+      "default": "Need Help Choosing?"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Image caption"
+    },
+    {
+      "type": "text",
+      "id": "support_note",
+      "label": "Support note",
+      "default": "Retail-first shopping with helpful support when you need product details."
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home hero premium"
+    }
+  ]
+}
+{% endschema %}

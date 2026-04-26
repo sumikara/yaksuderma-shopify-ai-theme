@@ -4,7 +4,11 @@
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": true,
-        "show_collection_image": false,
+        "show_collection_image": true,
+        "collection_intro_note": "",
+        "show_collection_cta": true,
+        "collection_cta_label": "Go to cart",
+        "collection_cta_link": "shopify://cart",
         "color_scheme": "scheme-1"
       }
     },
