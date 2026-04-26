@@ -25,6 +25,17 @@
         {%- if section.settings.collection_intro_note != blank -%}
           <p class="collection-hero__note">{{ section.settings.collection_intro_note | escape }}</p>
         {%- endif -%}
+
+        {%- if section.settings.show_collection_cta and section.settings.collection_cta_label != blank -%}
+          <div class="collection-hero__actions">
+            <a
+              href="{% if section.settings.collection_cta_link != blank %}{{ section.settings.collection_cta_link }}{% else %}{{ routes.all_products_collection_url }}{% endif %}"
+              class="button button--secondary collection-hero__button"
+            >
+              {{ section.settings.collection_cta_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
       </div>
 
       {%- if section.settings.show_collection_image and collection.image -%}
@@ -78,6 +89,23 @@
       "label": "Collection intro note",
       "default": "",
       "info": "Optional short trust/discovery note shown under the collection description."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_cta",
+      "default": true,
+      "label": "Show collection CTA"
+    },
+    {
+      "type": "text",
+      "id": "collection_cta_label",
+      "default": "Explore all products",
+      "label": "Collection CTA label"
+    },
+    {
+      "type": "url",
+      "id": "collection_cta_link",
+      "label": "Collection CTA link"
     },
     {
       "type": "color_scheme",

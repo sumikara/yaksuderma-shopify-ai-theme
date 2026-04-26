@@ -79,6 +79,55 @@
         "padding_bottom": 28
       }
     },
+    "image_banner_premium": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_banner_premium": {
+          "type": "heading",
+          "settings": {
+            "heading": "Explore all the products",
+            "heading_size": "h0"
+          }
+        },
+        "text_banner_premium": {
+          "type": "text",
+          "settings": {
+            "text": "Discover the full YaksuDerma catalog with clean navigation and trusted Korean-origin product categories.",
+            "text_style": "body"
+          }
+        },
+        "buttons_banner_premium": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_banner_premium",
+        "text_banner_premium",
+        "buttons_banner_premium"
+      ],
+      "settings": {
+        "image": "",
+        "image_2": "",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -103,6 +152,7 @@
   "order": [
     "home_hero_premium",
     "home_trust_bar",
+    "image_banner_premium",
     "featured_collection"
   ]
 }
