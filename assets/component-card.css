@@ -45,7 +45,9 @@
   position: relative;
   box-sizing: border-box;
   border-radius: var(--border-radius);
-  border: var(--border-width) solid rgba(var(--color-foreground), var(--border-opacity));
+  border: var(--border-width) solid rgba(var(--color-foreground), calc(var(--border-opacity) * 0.85));
+  background-color: rgba(var(--color-background), 0.96);
+  transition: box-shadow var(--duration-short) ease, border-color var(--duration-short) ease;
 }
 
 .card--card:after,
@@ -59,7 +61,7 @@
   left: calc(var(--border-width) * -1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius)
-    rgba(var(--color-shadow), var(--shadow-opacity));
+    rgba(var(--color-shadow), min(var(--shadow-opacity), var(--yds-shadow-soft-opacity, 0.08)));
 }
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
@@ -78,6 +80,7 @@
   /* Fix for Safari border bug on hover */
   z-index: 0;
   border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
+  background-color: rgba(var(--color-foreground), 0.03);
 }
 
 .card--card .card__inner .card__media {
@@ -125,7 +128,7 @@
 .card__content {
   display: grid;
   grid-template-rows: minmax(0, 1fr) max-content minmax(0, 1fr);
-  padding: 1rem;
+  padding: 1.2rem;
   width: 100%;
   flex-grow: 1;
 }
@@ -136,7 +139,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 1.3rem 1rem;
+  padding: 1.5rem 1.1rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,6 +306,9 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  line-height: calc(1 + 0.38 / var(--font-body-scale));
+  letter-spacing: 0.01rem;
+  overflow-wrap: break-word;
 }
 
 .card__heading:last-child {
@@ -313,6 +319,7 @@
 .card--horizontal .price__container .price-item,
 .card--horizontal__quick-add {
   font-size: calc(var(--font-heading-scale) * 1.2rem);
+  line-height: calc(1 + 0.32 / var(--font-body-scale));
 }
 
 .card--horizontal
@@ -388,7 +395,7 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
@@ -398,7 +405,7 @@
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
     transition: transform var(--duration-long) ease;
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   .underline-links-hover:hover a {
@@ -462,7 +469,7 @@
 }
 
 .card-information > * + * {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .card-information {
@@ -476,6 +483,7 @@
 
 .card-information > .price {
   color: rgb(var(--color-foreground));
+  margin-top: 0.9rem;
 }
 
 .card--horizontal .card-information > .price {
@@ -495,11 +503,25 @@
 }
 
 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
-  margin-top: 0.7rem;
+  margin-top: 0.8rem;
 }
 
 .card-information .caption {
   letter-spacing: 0.07rem;
+}
+
+.card__badge .badge {
+  letter-spacing: 0.04rem;
+}
+
+@media screen and (max-width: 749px) {
+  .card__content {
+    padding: 1rem;
+  }
+
+  .card__information {
+    padding: 1.2rem 0.9rem;
+  }
 }
 
 .card-article-info {
