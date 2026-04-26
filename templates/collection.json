@@ -5,6 +5,10 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
+        "collection_intro_note": "",
+        "show_collection_cta": true,
+        "collection_cta_label": "Explore all products",
+        "collection_cta_link": "shopify://collections/all",
         "color_scheme": "scheme-1"
       }
     },

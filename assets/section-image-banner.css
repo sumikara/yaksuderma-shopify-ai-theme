@@ -449,6 +449,125 @@
   word-break: break-word;
 }
 
+/* YaksuDerma Phase: premium banner family */
+.banner--premium-shell {
+  --banner-premium-overlay: linear-gradient(
+    125deg,
+    rgba(13, 17, 22, 0.72) 0%,
+    rgba(13, 17, 22, 0.55) 38%,
+    rgba(13, 17, 22, 0.24) 70%,
+    rgba(13, 17, 22, 0.12) 100%
+  );
+  border-radius: clamp(1.8rem, 2.4vw, 2.8rem);
+  overflow: hidden;
+  min-height: clamp(42rem, 62vh, 62rem);
+  margin: clamp(1.2rem, 2vw, 2.6rem) clamp(1.5rem, 3vw, 2.6rem) 0;
+  border: 0.1rem solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.42);
+  box-shadow: 0 2rem 4.4rem rgba(5, 8, 12, 0.22);
+  background: rgb(15, 18, 23);
+}
+
+.banner--premium-shell::after {
+  background: var(--banner-premium-overlay);
+}
+
+.banner--premium-shell .banner__content {
+  padding: clamp(2.4rem, 5vw, 4.8rem);
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.banner--premium-shell .banner__box {
+  width: min(58rem, 92%);
+  background: linear-gradient(150deg, rgba(16, 22, 30, 0.72), rgba(16, 22, 30, 0.44));
+  border: 0.1rem solid rgba(255, 255, 255, 0.24);
+  border-radius: clamp(1.4rem, 2vw, 2.2rem);
+  backdrop-filter: blur(0.8rem);
+  box-shadow: 0 1.2rem 2.6rem rgba(5, 8, 12, 0.32);
+  padding: clamp(2rem, 3vw, 3.2rem);
+}
+
+.banner--premium-shell .banner__heading,
+.banner--premium-shell .banner__text {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.banner--premium-shell .banner__heading {
+  margin-bottom: 1rem;
+  text-wrap: balance;
+  letter-spacing: 0.01em;
+}
+
+.banner--premium-shell .banner__text {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.4rem, 1.6vw, 1.7rem);
+  line-height: 1.55;
+  color: rgba(245, 249, 255, 0.86);
+}
+
+.banner--premium-shell .banner__buttons .button {
+  border-radius: 99rem;
+  min-height: 4.6rem;
+  font-size: 1.45rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, border-color 0.24s ease;
+}
+
+.banner--premium-shell .banner__buttons .button--primary {
+  --color-button: 255, 255, 255;
+  --color-button-text: 17, 20, 25;
+  box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.22);
+}
+
+.banner--premium-shell .banner__buttons .button--primary:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.28);
+}
+
+.banner--premium-shell .banner__buttons .button--secondary {
+  --color-button: 255, 255, 255;
+  --alpha-button-background: 0.03;
+  --alpha-button-border: 0.65;
+  --color-button-text: 255, 255, 255;
+  backdrop-filter: blur(0.5rem);
+}
+
+.banner--premium-shell .banner__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 86% 8%, rgba(122, 170, 204, 0.24), transparent 45%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner--premium-shell .banner__media img {
+  filter: saturate(0.9) contrast(1.05);
+}
+
+@media screen and (max-width: 989px) {
+  .banner--premium-shell {
+    margin-inline: 0;
+    border-radius: 0;
+    min-height: 44rem;
+  }
+
+  .banner--premium-shell .banner__content {
+    padding: 1.8rem 1.6rem;
+    align-items: flex-end;
+  }
+
+  .banner--premium-shell .banner__box {
+    width: 100%;
+    padding: 1.8rem 1.6rem;
+  }
+
+  .banner--premium-shell .banner__heading {
+    font-size: clamp(calc(var(--font-heading-scale) * 2.6rem), 8vw, calc(var(--font-heading-scale) * 3.5rem));
+  }
+}
+
 @media screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__buttons--multiple {
     justify-content: flex-end;
