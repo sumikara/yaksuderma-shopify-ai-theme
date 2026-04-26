@@ -1,0 +1,148 @@
+{{ 'section-home-trust-bar.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="home-trust-bar color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="home-trust-bar__shell">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="home-trust-bar__heading h4">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      <div class="home-trust-bar__grid" role="list">
+        {%- for block in section.blocks -%}
+          <div class="home-trust-bar__item" role="listitem" {{ block.shopify_attributes }}>
+            <p class="home-trust-bar__item-title">{{ block.settings.title | escape }}</p>
+            {%- if block.settings.text != blank -%}
+              <p class="home-trust-bar__item-text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home trust bar",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why customers choose YaksuDerma"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Korean-Origin Product Focus"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Optional short text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home trust bar",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Korean-Origin Product Focus"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Original Product Selection"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Fair Pricing"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Helpful Support"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Carefully Handled Orders"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Business Inquiries Welcome"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
