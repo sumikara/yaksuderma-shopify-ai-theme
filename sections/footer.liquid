@@ -27,235 +27,230 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign has_social_icons = true
+  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    assign has_social_icons = false
+  endif
+
+  assign support_link = section.settings.support_button_link
+  if support_link == blank
+    assign support_link = routes.contact_url
+  endif
+
+  assign contact_map_link = section.settings.contact_map_link
+  assign trust_points = section.settings.footer_trust_points | newline_to_br | split: '<br />'
+-%}
+
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  {%- liquid
-    assign has_social_icons = true
-    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-      assign has_social_icons = false
-    endif
+  {%- if section.settings.show_support_strip -%}
+    <div class="footer-support-strip page-width">
+      <div class="footer-support-strip__content">
+        {%- if section.settings.support_heading != blank -%}
+          <h2 class="footer-support-strip__heading">{{ section.settings.support_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.support_text != blank -%}
+          <p class="footer-support-strip__text">{{ section.settings.support_text }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.support_button_label != blank -%}
+        <a class="button footer-support-strip__button" href="{{ support_link }}">{{ section.settings.support_button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 
-    if settings.brand_image == blank and settings.brand_headline == blank and settings.brand_description == blank
-      assign brand_empty = true
-    endif
-
-    if section.blocks.size == 1 and section.blocks[0].type == 'brand_information' and brand_empty and has_social_icons == false and section.settings.newsletter_enable == false and section.settings.enable_follow_on_shop == false
-      assign only_empty_brand = true
-    endif
-  -%}
-  {%- if section.blocks.size > 0
-    or section.settings.newsletter_enable
-    or section.settings.show_social
-    and has_social_icons == true
-    or section.settings.enable_follow_on_shop
-  -%}
-    {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
-        {%- if section.blocks.size > 0 -%}
-          {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
-            endif
-          -%}
-          <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-            {% endif %}
-          >
-            {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-                {%- endif -%}
-
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
-                  {%- when 'text' -%}
-                    <div class="footer-block__details-content rte">
-                      {{ block.settings.subtext }}
-                    </div>
-                  {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- when 'brand_information' -%}
-                    <div class="footer-block__brand-info">
-                      {%- if settings.brand_image != blank -%}
-                        {%- assign brand_image_height = settings.brand_image_width
-                          | divided_by: settings.brand_image.aspect_ratio
-                        -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ settings.brand_image_width }}px);"
-                        >
-                          {{
-                            settings.brand_image
-                            | image_url: width: 1100
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                              height: brand_image_height,
-                              width: settings.brand_image_width
-                          }}
-                        </div>
-                      {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-                      {%- endif -%}
-                      {%- if settings.brand_description != blank -%}
-                        <div class="rte">{{ settings.brand_description }}</div>
-                      {%- endif -%}
-                      {%- if block.settings.show_social and has_social_icons -%}
-                        {%- render 'social-icons', class: 'footer__list-social' -%}
-                      {%- endif -%}
-                    </div>
-                  {%- when 'image' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                      {%- if block.settings.image != blank -%}
-                        {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                        >
-                          <img
-                            srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                            src="{{ block.settings.image | image_url: width: 760 }}"
-                            alt="{{ block.settings.image.alt | escape }}"
-                            loading="lazy"
-                            width="{{ block.settings.image.width }}"
-                            height="{{ block.settings.image.height }}"
-                          >
-                        </div>
-                      {%- else -%}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                      {%- endif -%}
-                    </div>
-                {%- endcase -%}
-              </div>
-            {%- endfor -%}
-          </div>
+  <div class="footer__content-top page-width">
+    <div class="footer-premium-grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
+      <div class="footer-premium-card footer-premium-card--brand">
+        <h2 class="footer-block__heading inline-richtext">{{ section.settings.footer_brand_heading | escape }}</h2>
+        {%- if section.settings.footer_brand_text != blank -%}
+          <p class="footer-premium-card__text">{{ section.settings.footer_brand_text }}</p>
         {%- endif -%}
 
-        <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
-          {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
-              {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+        {%- if section.settings.footer_trust_points != blank -%}
+          <ul class="footer-premium-trust list-unstyled">
+            {%- for point in trust_points -%}
+              {%- assign clean_point = point | strip -%}
+              {%- if clean_point != blank -%}
+                <li>{{ clean_point }}</li>
               {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="newsletter-form__field-wrapper">
-                  <div class="field">
-                    <input
-                      id="NewsletterForm--{{ section.id }}"
-                      type="email"
-                      name="contact[email]"
-                      class="field__input"
-                      value="{{ form.email }}"
-                      aria-required="true"
-                      autocorrect="off"
-                      autocapitalize="off"
-                      autocomplete="email"
-                      {% if form.errors %}
-                        autofocus
-                        aria-invalid="true"
-                        aria-describedby="ContactFooter-error"
-                      {% elsif form.posted_successfully? %}
-                        aria-describedby="ContactFooter-success"
-                      {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
-                      required
-                    >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                      {{ 'newsletter.label' | t }}
-                    </label>
-                    <button
-                      type="submit"
-                      class="newsletter-form__button field__button"
-                      name="commit"
-                      id="Subscribe"
-                      aria-label="{{ 'newsletter.button_label' | t }}"
-                    >
-                      <span class="svg-wrapper">
-                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                      </span>
-                    </button>
-                  </div>
-                  {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                      <span class="svg-wrapper">
-                        {{- 'icon-error.svg' | inline_asset_content -}}
-                      </span>
-                      {{- form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email -}}
-                    </small>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.show_social and has_social_icons -%}
+          {%- render 'social-icons', class: 'footer__list-social' -%}
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <div class="footer-premium-card footer-premium-card--block footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h3 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h3>
+            {%- endif -%}
+
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+
+              {%- when 'text' -%}
+                <div class="footer-block__details-content rte">
+                  {{ block.settings.subtext }}
+                </div>
+
+              {%- when 'link_list' -%}
+                {%- if block.settings.menu != blank -%}
+                  <ul class="footer-block__details-content list-unstyled">
+                    {%- for link in block.settings.menu.links -%}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                        >
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+
+              {%- when 'brand_information' -%}
+                <div class="footer-block__brand-info">
+                  {%- if settings.brand_image != blank -%}
+                    {%- assign brand_image_height = settings.brand_image_width | divided_by: settings.brand_image.aspect_ratio -%}
+                    <div class="footer-block__image-wrapper" style="max-width: min(100%, {{ settings.brand_image_width }}px);">
+                      {{
+                        settings.brand_image
+                        | image_url: width: 1100
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
+                          height: brand_image_height,
+                          width: settings.brand_image_width
+                      }}
+                    </div>
+                  {%- endif -%}
+                  {%- if settings.brand_headline != blank -%}
+                    <h3 class="footer-block__heading rte">{{ settings.brand_headline }}</h3>
+                  {%- endif -%}
+                  {%- if settings.brand_description != blank -%}
+                    <div class="rte">{{ settings.brand_description }}</div>
                   {%- endif -%}
                 </div>
-                {%- if form.posted_successfully? -%}
-                  <h3
-                    class="newsletter-form__message newsletter-form__message--success form__message"
-                    id="ContactFooter-success"
-                    tabindex="-1"
-                    autofocus
-                  >
-                    <span class="svg-wrapper">
-                      {{- 'icon-success.svg' | inline_asset_content -}}
-                    </span>
-                    {{- 'newsletter.success' | t }}
-                  </h3>
-                {%- endif -%}
-              {%- endform -%}
-            </div>
+
+              {%- when 'image' -%}
+                <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
+                  {%- if block.settings.image != blank -%}
+                    {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
+                    <div class="footer-block__image-wrapper" style="max-width: min(100%, {{ block.settings.image_width }}px);">
+                      <img
+                        srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+                        src="{{ block.settings.image | image_url: width: 760 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                      >
+                    </div>
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                  {%- endif -%}
+                </div>
+            {%- endcase -%}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+
+      <div class="footer-premium-card footer-premium-card--contact">
+        <h3 class="footer-block__heading inline-richtext">{{ section.settings.contact_heading | escape }}</h3>
+
+        <div class="footer-contact-list">
+          {%- if section.settings.contact_email != blank -%}
+            <p><span>Email:</span> <a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a></p>
           {%- endif -%}
 
-          {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-            <div class="footer__follow-on-shop">
-              {{ shop | login_button: action: 'follow' }}
-            </div>
+          {%- if section.settings.contact_phone != blank -%}
+            <p><span>Phone / WhatsApp:</span> <a href="tel:{{ section.settings.contact_phone | replace: ' ', '' }}">{{ section.settings.contact_phone | escape }}</a></p>
           {%- endif -%}
 
-          {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
+          {%- if section.settings.contact_address != blank -%}
+            <p><span>Address:</span> {{ section.settings.contact_address }}</p>
+          {%- endif -%}
+
+          {%- if contact_map_link != blank -%}
+            <p><a class="footer-contact-map" href="{{ contact_map_link }}" target="_blank" rel="noopener">{{ section.settings.contact_map_label | escape }}</a></p>
+          {%- endif -%}
+
+          {%- if section.settings.contact_note != blank -%}
+            <p class="footer-contact-note">{{ section.settings.contact_note }}</p>
           {%- endif -%}
         </div>
       </div>
-    {%- endunless -%}
-  {%- endif -%}
+    </div>
 
-  <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
+    {%- if section.settings.newsletter_enable or section.settings.enable_follow_on_shop -%}
+      <div class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
+        {%- if section.settings.newsletter_enable -%}
+          <div class="footer-block__newsletter">
+            {%- if section.settings.newsletter_heading != blank -%}
+              <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+            {%- endif -%}
+            {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper">
+                <div class="field">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="ContactFooter-error"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="ContactFooter-success"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="NewsletterForm--{{ section.id }}">{{ 'newsletter.label' | t }}</label>
+                  <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                    <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                    <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>
+                  <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+                  {{- 'newsletter.success' | t }}
+                </h3>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+
+        {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+          <div class="footer__follow-on-shop">{{ shop | login_button: action: 'follow' }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -273,15 +268,14 @@
           <localization-form>
             {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
               <div>
-                <h2 class="caption-large text-body" id="FooterLanguageLabel">
-                  {{ 'localization.language_label' | t }}
-                </h2>
+                <h2 class="caption-large text-body" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2>
                 {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
               </div>
             {%- endform -%}
           </localization-form>
         {%- endif -%}
       </div>
+
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
@@ -297,21 +291,15 @@
         {%- endif -%}
       </div>
     </div>
+
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-        </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
+        <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}</small>
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
             {%- for policy in shop.policies -%}
               {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
+                <li><small class="copyright__content"><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small></li>
               {%- endif -%}
             {%- endfor -%}
           </ul>
@@ -432,6 +420,106 @@
     },
     {
       "type": "header",
+      "content": "Pre-footer support strip"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_support_strip",
+      "default": true,
+      "label": "Show support strip"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "support_heading",
+      "default": "Need help choosing a product?",
+      "label": "Support heading"
+    },
+    {
+      "type": "text",
+      "id": "support_text",
+      "default": "We’re here to help with product details, category guidance, and order questions.",
+      "label": "Support text"
+    },
+    {
+      "type": "text",
+      "id": "support_button_label",
+      "default": "Contact Us",
+      "label": "Support button label"
+    },
+    {
+      "type": "url",
+      "id": "support_button_link",
+      "label": "Support button link"
+    },
+    {
+      "type": "header",
+      "content": "Brand / Intro"
+    },
+    {
+      "type": "text",
+      "id": "footer_brand_heading",
+      "default": "YaksuDerma",
+      "label": "Footer brand heading"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_brand_text",
+      "default": "Korean-origin aesthetic products with clear navigation, fair pricing, and helpful support.",
+      "label": "Footer brand text"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_trust_points",
+      "label": "Trust points (one per line)",
+      "default": "Original product focus\nFair pricing\nHelpful support"
+    },
+    {
+      "type": "header",
+      "content": "Contact / Location card"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "default": "Contact & Location",
+      "label": "Contact card heading"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "default": "support@yaksuderma.com",
+      "label": "Support email"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "default": "",
+      "label": "Phone / WhatsApp"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_address",
+      "default": "Seoul, South Korea",
+      "label": "Address"
+    },
+    {
+      "type": "text",
+      "id": "contact_map_label",
+      "default": "View on map",
+      "label": "Map link label"
+    },
+    {
+      "type": "url",
+      "id": "contact_map_link",
+      "label": "Map link URL"
+    },
+    {
+      "type": "text",
+      "id": "contact_note",
+      "default": "Support responses are provided during business hours.",
+      "label": "Support note"
+    },
+    {
+      "type": "header",
       "content": "t:sections.footer.settings.header__1.content",
       "info": "t:sections.footer.settings.header__1.info"
     },
@@ -537,7 +625,10 @@
         "type": "link_list"
       },
       {
-        "type": "text"
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
       }
     ]
   }
