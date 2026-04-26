@@ -3,6 +3,26 @@
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
+  /* YaksuDerma semantic aliases (non-destructive, layered over Dawn tokens) */
+  --yds-color-soft-turquoise: 87, 199, 194;
+  --yds-color-aqua: 221, 247, 245;
+  --yds-color-medical-blue-green: 47, 143, 138;
+  --yds-color-trust-blue: 58, 110, 165;
+  --yds-color-warm-sand: 243, 232, 213;
+  --yds-color-neutral-text: 31, 45, 43;
+  --yds-color-neutral-surface: 248, 251, 250;
+  --yds-color-light-border: 221, 231, 229;
+  --yds-radius-soft: 1.2rem;
+  --yds-shadow-soft-opacity: 0.08;
+  --yds-space-section-mobile-offset: 0.4rem;
+  --yds-space-section-desktop-offset: 0.8rem;
+  --yds-type-letterspacing-body: 0.04rem;
+  --yds-type-lineheight-body: calc(1 + 0.9 / var(--font-body-scale));
+  --yds-focus-outline: 0.2rem solid rgba(var(--yds-color-trust-blue), 0.45);
+  --yds-focus-outline-offset: 0.3rem;
+  --yds-focus-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.35rem
+    rgba(var(--yds-color-soft-turquoise), 0.35);
+  --yds-link-color: var(--color-link);
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
@@ -147,12 +167,12 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 .section + .section {
-  margin-top: var(--spacing-sections-mobile);
+  margin-top: calc(var(--spacing-sections-mobile) + var(--yds-space-section-mobile-offset));
 }
 
 @media screen and (min-width: 750px) {
   .section + .section {
-    margin-top: var(--spacing-sections-desktop);
+    margin-top: calc(var(--spacing-sections-desktop) + var(--yds-space-section-desktop-offset));
   }
 }
 
@@ -240,8 +260,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 .text-body {
   font-size: 1.5rem;
-  letter-spacing: 0.06rem;
-  line-height: calc(1 + 0.8 / var(--font-body-scale));
+  letter-spacing: var(--yds-type-letterspacing-body);
+  line-height: var(--yds-type-lineheight-body);
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
@@ -404,7 +424,7 @@ blockquote {
 .form__label,
 .select__select {
   font-size: 1.3rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
+  line-height: calc(1 + 0.55 / var(--font-body-scale));
   letter-spacing: 0.04rem;
 }
 
@@ -489,7 +509,7 @@ h6:empty {
   box-shadow: none;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-  color: rgb(var(--color-link));
+  color: rgb(var(--yds-link-color));
   background-color: transparent;
   font-size: 1.4rem;
   font-family: inherit;
@@ -600,7 +620,7 @@ details > * {
 
 .underlined-link,
 .customer a {
-  color: rgba(var(--color-link), var(--alpha-link));
+  color: rgba(var(--yds-link-color), var(--alpha-link));
 }
 
 .inline-richtext a,
@@ -611,8 +631,8 @@ details > * {
 .underlined-link:hover,
 .customer a:hover,
 .inline-richtext a:hover {
-  color: rgb(var(--color-link));
-  text-decoration-thickness: 0.2rem;
+  color: rgb(var(--yds-link-color));
+  text-decoration-thickness: 0.16rem;
 }
 
 .icon-arrow {
@@ -716,16 +736,16 @@ summary::-webkit-details-marker {
 }
 
 *:focus-visible {
-  outline: var(--focused-base-outline);
-  outline-offset: var(--focused-base-outline-offset);
-  box-shadow: var(--focused-base-box-shadow);
+  outline: var(--yds-focus-outline, var(--focused-base-outline));
+  outline-offset: var(--yds-focus-outline-offset, var(--focused-base-outline-offset));
+  box-shadow: var(--yds-focus-shadow, var(--focused-base-box-shadow));
 }
 
 /* Fallback - for browsers that don't support :focus-visible, a fallback is set for :focus */
 .focused {
-  outline: var(--focused-base-outline);
-  outline-offset: var(--focused-base-outline-offset);
-  box-shadow: var(--focused-base-box-shadow);
+  outline: var(--yds-focus-outline, var(--focused-base-outline));
+  outline-offset: var(--yds-focus-outline-offset, var(--focused-base-outline-offset));
+  box-shadow: var(--yds-focus-shadow, var(--focused-base-box-shadow));
 }
 
 /*
@@ -769,7 +789,7 @@ summary::-webkit-details-marker {
 /* component-title */
 .title,
 .title-wrapper-with-link {
-  margin: 3rem 0 2rem;
+  margin: 3.2rem 0 2.2rem;
 }
 
 .title-wrapper-with-link .title {
@@ -781,7 +801,7 @@ summary::-webkit-details-marker {
 }
 
 .title-wrapper {
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 }
 
 .title-wrapper-with-link {
@@ -1196,7 +1216,7 @@ button.shopify-payment-button__button--unbranded {
   --shadow-visible: var(--buttons-shadow-visible);
   --border-offset: var(--buttons-border-offset); /* reduce radius edge artifacts */
   --border-opacity: calc(1 - var(--buttons-border-opacity));
-  border-radius: var(--buttons-radius-outset);
+  border-radius: max(var(--buttons-radius-outset), var(--yds-radius-soft));
   position: relative;
 }
 
@@ -1240,7 +1260,7 @@ button.shopify-payment-button__button--unbranded {
   z-index: -1;
   border-radius: var(--buttons-radius-outset);
   box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius)
-    rgba(var(--color-shadow), var(--shadow-opacity));
+    rgba(var(--color-shadow), min(var(--shadow-opacity), var(--yds-shadow-soft-opacity)));
 }
 
 .button:after,
@@ -1254,7 +1274,7 @@ button.shopify-payment-button__button--unbranded {
   bottom: var(--buttons-border-width);
   left: var(--buttons-border-width);
   z-index: 1;
-  border-radius: var(--buttons-radius);
+  border-radius: max(var(--buttons-radius), calc(var(--yds-radius-soft) - 0.2rem));
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
@@ -1265,7 +1285,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button:hover::after,
 .customer button:hover::after,
 .shopify-payment-button__button--unbranded:hover::after {
-  --border-offset: 1.3px;
+  --border-offset: 1px;
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), var(--alpha-button-background));
@@ -1281,8 +1301,8 @@ button.shopify-payment-button__button--unbranded {
 .shopify-payment-button__button--unbranded:focus-visible,
 .shopify-payment-button__button--unbranded:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgba(var(--color-foreground), 0.5),
-    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.45rem rgba(var(--yds-color-trust-blue), 0.45),
+    0 0 0.5rem 0.35rem rgba(var(--yds-color-soft-turquoise), 0.3);
 }
 
 .button:focus:not(:focus-visible):not(.focused),
