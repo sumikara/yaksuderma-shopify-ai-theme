@@ -9,23 +9,30 @@
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  {%- if section.settings.show_collection_image and collection.image -%}
+{%- liquid
+  assign banner_image = section.settings.collection_banner_image
+  if banner_image == blank
+    assign banner_image = collection.image
+  endif
+-%}
+
+<div class="collection-hero{% if section.settings.show_collection_image and banner_image != blank %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.show_collection_image and banner_image != blank -%}
     <div class="collection-hero__media media">
       <img
         srcset="
-          {%- if collection.image.width >= 550 -%}{{ collection.image | image_url: width: 550 }} 550w,{%- endif -%}
-          {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-          {%- if collection.image.width >= 1100 -%}{{ collection.image | image_url: width: 1100 }} 1100w,{%- endif -%}
-          {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-          {%- if collection.image.width >= 2000 -%}{{ collection.image | image_url: width: 2000 }} 2000w,{%- endif -%}
-          {{ collection.image | image_url }} {{ collection.image.width }}w
+          {%- if banner_image.width >= 550 -%}{{ banner_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if banner_image.width >= 750 -%}{{ banner_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if banner_image.width >= 1100 -%}{{ banner_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if banner_image.width >= 1500 -%}{{ banner_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if banner_image.width >= 2000 -%}{{ banner_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {{ banner_image | image_url }} {{ banner_image.width }}w
         "
-        src="{{ collection.image | image_url: width: 1500 }}"
+        src="{{ banner_image | image_url: width: 1500 }}"
         sizes="100vw"
-        alt="{{ collection.image.alt | escape }}"
-        width="{{ collection.image.width }}"
-        height="{{ collection.image.height }}"
+        alt="{{ banner_image.alt | escape }}"
+        width="{{ banner_image.width }}"
+        height="{{ banner_image.height }}"
       >
     </div>
   {%- endif -%}
@@ -81,6 +88,11 @@
       "id": "show_collection_image",
       "default": true,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_banner_image",
+      "label": "Collection banner image override"
     },
     {
       "type": "text",
