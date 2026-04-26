@@ -98,6 +98,105 @@
   margin-top: 1rem;
 }
 
+/* Phase 4D: premium collection header shell */
+.collection-hero {
+  margin-top: clamp(1.2rem, 2.8vw, 2.4rem);
+}
+
+.collection-hero__inner {
+  position: relative;
+}
+
+.collection-hero__shell {
+  border: 0.1rem solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.95);
+  border-radius: max(var(--inputs-radius), var(--yds-radius-soft, 1.2rem));
+  background:
+    linear-gradient(135deg, rgba(var(--yds-color-aqua, 221, 247, 245), 0.44) 0%, rgba(var(--color-background), 1) 52%),
+    rgb(var(--color-background));
+  box-shadow: 0 0.7rem 2rem rgba(var(--color-shadow), 0.06);
+  padding: clamp(2rem, 3.6vw, 3.6rem);
+}
+
+.collection-hero__title {
+  margin: 0;
+  color: rgba(var(--yds-color-neutral-text, 31, 45, 43), 0.98);
+  letter-spacing: 0.02rem;
+  line-height: calc(1 + 0.28 / max(1, var(--font-heading-scale)));
+}
+
+.collection-hero__description {
+  margin-top: 1.4rem;
+  color: rgba(var(--yds-color-neutral-text, 31, 45, 43), 0.84);
+  max-width: 72ch;
+  line-height: calc(1 + 0.78 / var(--font-body-scale));
+}
+
+.collection-hero__description > * + * {
+  margin-top: 1.1rem;
+}
+
+.collection-hero__note {
+  margin-top: 1.6rem;
+  margin-bottom: 0;
+  padding-top: 1.2rem;
+  border-top: 0.1rem solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.9);
+  color: rgba(var(--yds-color-trust-blue, 58, 110, 165), 0.9);
+  font-size: 1.45rem;
+  letter-spacing: 0.02rem;
+  line-height: calc(1 + 0.66 / var(--font-body-scale));
+}
+
+.collection-hero--with-image .collection-hero__shell {
+  display: grid;
+  gap: clamp(1.8rem, 3.4vw, 3rem);
+  align-items: center;
+}
+
+.collection-hero--with-image .collection-hero__text-wrapper {
+  max-width: 70ch;
+}
+
+.collection-hero--with-image .collection-hero__image-container {
+  border-radius: max(var(--media-radius), calc(var(--yds-radius-soft, 1.2rem) * 0.95));
+  overflow: hidden;
+  border: 0.1rem solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.9);
+}
+
+@media screen and (min-width: 990px) {
+  .collection-hero--with-image .collection-hero__shell {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  }
+
+  .collection-hero__title {
+    font-size: clamp(calc(var(--font-heading-scale) * 3.2rem), 3.1vw, calc(var(--font-heading-scale) * 4.2rem));
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .collection-hero {
+    margin-top: 1rem;
+  }
+
+  .collection-hero__shell {
+    padding: 1.8rem 1.6rem;
+    box-shadow: 0 0.5rem 1.4rem rgba(var(--color-shadow), 0.05);
+  }
+
+  .collection-hero__title {
+    font-size: clamp(calc(var(--font-heading-scale) * 2.5rem), 7.2vw, calc(var(--font-heading-scale) * 3.2rem));
+  }
+
+  .collection-hero__description {
+    margin-top: 1.2rem;
+  }
+
+  .collection-hero__note {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    font-size: 1.35rem;
+  }
+}
+
 /* YaksuDerma collection rhythm modernization (CSS-only) */
 .facets-vertical.page-width {
   display: grid;
