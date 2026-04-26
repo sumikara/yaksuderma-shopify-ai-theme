@@ -138,6 +138,13 @@
   padding: 1.4rem;
   width: 100%;
   flex-grow: 1;
+  background:
+    linear-gradient(
+      160deg,
+      rgba(var(--yds-color-aqua, 221, 247, 245), 0.22) 0%,
+      rgba(var(--yds-color-neutral-surface, 248, 251, 250), 0.93) 58%,
+      rgba(var(--color-background), 0.98) 100%
+    );
 }
 
 .card__content--auto-margins {
@@ -361,6 +368,7 @@
 
 .card--card.card--media > .card__content {
   margin-top: calc(0rem - var(--image-padding));
+  border-top: 0.1rem solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.58);
 }
 
 .card--standard.card--text a::after,
