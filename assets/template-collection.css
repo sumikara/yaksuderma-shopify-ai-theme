@@ -97,3 +97,72 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+/* YaksuDerma collection rhythm modernization (CSS-only) */
+.facets-vertical.page-width {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.collection-hero + .section .section-collection-product-grid-padding,
+.collection-hero + .section [class*='section-'][class*='-padding'] {
+  padding-top: clamp(2.4rem, 3vw, 4rem);
+}
+
+.facets-wrapper.page-width,
+.facets-vertical .facets-wrapper {
+  margin-bottom: 0.8rem;
+}
+
+.product-grid-container {
+  padding-top: 0.4rem;
+}
+
+.collection .product-grid {
+  row-gap: 2.4rem;
+}
+
+.collection .grid__item {
+  padding-bottom: 0.2rem;
+}
+
+.collection .pagination-wrapper {
+  margin-top: clamp(2.4rem, 3.4vw, 4rem);
+}
+
+.collection--empty .title-wrapper {
+  margin-top: clamp(7rem, 10vw, 10rem);
+  margin-bottom: clamp(10rem, 13vw, 15rem);
+}
+
+@media screen and (min-width: 750px) {
+  .facets-vertical.page-width {
+    row-gap: 2.6rem;
+  }
+
+  .product-grid-container {
+    padding-top: 0.8rem;
+  }
+
+  .collection .product-grid {
+    row-gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .facets-vertical.page-width {
+    row-gap: 1.6rem;
+  }
+
+  .product-grid-container {
+    padding-top: 0.2rem;
+  }
+
+  .collection .product-grid {
+    row-gap: 2rem;
+  }
+
+  .collection .pagination-wrapper {
+    margin-top: 2.2rem;
+  }
+}
