@@ -45,8 +45,14 @@
   position: relative;
   box-sizing: border-box;
   border-radius: var(--border-radius);
-  border: var(--border-width) solid rgba(var(--color-foreground), calc(var(--border-opacity) * 0.72));
-  background-color: rgba(var(--color-background), 0.985);
+  border: var(--border-width) solid rgba(var(--yds-color-light-border, 221, 231, 229), 0.9);
+  background:
+    linear-gradient(
+      152deg,
+      rgba(var(--yds-color-aqua, 221, 247, 245), 0.2) 0%,
+      rgba(var(--color-background), 0.995) 56%
+    ),
+    rgba(var(--color-background), 0.995);
   transition: box-shadow var(--duration-short) ease, border-color var(--duration-short) ease, transform var(--duration-short) ease;
 }
 
@@ -61,7 +67,7 @@
   left: calc(var(--border-width) * -1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius)
-    rgba(var(--color-shadow), min(var(--shadow-opacity), var(--yds-shadow-soft-opacity, 0.1)));
+    rgba(var(--color-shadow), min(var(--shadow-opacity), var(--yds-shadow-soft-opacity, 0.07)));
 }
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
@@ -80,7 +86,8 @@
   /* Fix for Safari border bug on hover */
   z-index: 0;
   border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
-  background-color: rgba(var(--color-foreground), 0.03);
+  background:
+    linear-gradient(180deg, rgba(var(--yds-color-aqua, 221, 247, 245), 0.2) 0%, rgba(var(--color-background), 0.97) 100%);
 }
 
 .card--card .card__inner .card__media {
@@ -401,8 +408,8 @@
 @media screen and (min-width: 990px) {
   .card-wrapper:hover .card--card,
   .card-wrapper:hover .card--standard .card__inner {
-    transform: translateY(-0.2rem);
-    border-color: rgba(var(--color-foreground), calc(var(--border-opacity) * 1.05));
+    transform: translateY(-0.18rem);
+    border-color: rgba(var(--yds-color-medical-blue-green, 47, 143, 138), 0.25);
   }
 
   .card .media.media--hover-effect > img:only-child,
@@ -412,7 +419,7 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.015);
+    transform: scale(1.012);
   }
 
   .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
@@ -422,7 +429,7 @@
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
     transition: transform var(--duration-long) ease;
-    transform: scale(1.015);
+    transform: scale(1.012);
   }
 
   .underline-links-hover:hover a {
